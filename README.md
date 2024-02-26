@@ -20,3 +20,68 @@
 [“Russia”, “Denmark”, “Kazan”] → []
 ```
 ***
+## Блок-схема:
+![blok-shema.jpg](https://github.com/R0MAN56/Final_control_work/blob/main/blok-shema.jpg)
+
+## Описание решения:
+1. Создание репозитория на __GitHub__.
+2. Создание локального репозитория в программе __VSCode__.
+3. Cоздание блок-схемы в __drawio__.
+4. Создание программы в __VSCode__.
+Код программы:
+```cs
+using System;
+
+namespace Task
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Clear();
+            Console.Write("Введите размер массива: ");
+            int sym = Convert.ToInt32(Console.ReadLine());
+            string[] array = new string[sym];
+            Console.WriteLine($"Введёный массив: {string.Join(",\t ", CrtArr())}");
+            Console.WriteLine($"Новый массив: {string.Join(",\t", NewArr(array))}");
+            string[] CrtArr()
+            {
+                for (int i = 0; i < array.Length; i++)
+                {
+                    Console.Write($"Введите элемент массива {i}: ");
+                    array[i] = Console.ReadLine();
+                }
+                return array;
+            }
+            int ChkArr(string[] array)
+            {
+                int cnt = 0;
+                for (int i = 0; i < array.Length; i++)
+                {
+                    if (array[i].Length <= 3)
+                    {
+                        cnt++;
+                    }
+                }
+                return cnt;
+            }
+            string[] NewArr(string[] array)
+            {
+                string[] newArr = new string[ChkArr(array)];
+                int n = 0;
+                for (int i = 0; i < array.Length; i++)
+                {
+                    if (array[i].Length <= 3)
+                    {
+                        newArr[n] = array[i];
+                        n++;
+                    }
+                }
+                return newArr;
+            }
+        }
+    }
+}
+```
+6. Заполнение файла __README.md__.
+7. Связывание локального и удаленнлого репозиториев.
